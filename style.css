@@ -82,7 +82,7 @@ main, section{
 .works{
 	padding: 192px 24px;
 }
-main h1{
+main h1, section h1{
 	font-size: 4rem;
 }
 main p{
@@ -111,6 +111,7 @@ main p{
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 32px;
+	margin-top: 32px;
 }
 .card{
 	display: flex;
