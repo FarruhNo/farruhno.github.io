@@ -1,224 +1,96 @@
 *{
-	font-family: Inter;
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+	font-family: "Space Grotesk";
 }
 body{
-	background: #0d1012;
-	color: white;
-}
-header{
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 24px 240px;
-	gap: 24px;
-	position: absolute;
+	height: 100vh;
+	background: #111;
+}
+.main{
 	width: 100%;
-}
-.name{
-	font-size: 2rem;
-	font-weight: 700;
-	padding: 12px 16px;
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(20px);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 16px;
-}
-nav{
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(20px);
-	height: 100%;
-	padding: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 16px;
-}
-a{
-	color: white;
-	text-decoration: none;
-	padding: 12px 16px;
-	border-radius: 12px;
-	border: 1px solid rgba(255, 255, 255, 0);
-	transition: 0.12s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px 16px;
-}
-a:hover{
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.grid{
-	background-image:  linear-gradient(#1092c9 1px, transparent 1px), linear-gradient(to right, #1092c9 1px, #1092c950 1px);
-	background-size: 32px 32px;
-	mask-image: radial-gradient(circle, black 0%, transparent 60%);
-	width: 1000px;
-	height: 1000px;
-	position: absolute;
-	z-index: -1;
-	border-radius: 100%;
-	background-position: center;
-	left: 50%;
-	top: 0;
-	transform: translate(-50%, -50%);
-}
-main, section{
-	width: 100%;
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-flow: column;
-	gap: 32px;
-	padding: 0 240px;
-}
-.works{
-	padding: 192px 24px;
-}
-main h1, section h1{
+	gap: 12px;
 	font-size: 4rem;
+	color: #eee;
 }
-main p{
+.main h1{
+	font-weight: 100;
+}
+button{
+	padding: 8px 12px;
 	font-size: 1.2rem;
-	max-width: 50%;
-	text-align: center;
-}
-.cta{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-}
-.cta a, .card a{
-	background: #1092c912;
-	backdrop-filter: blur(20px);
-	font-weight: 800;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.cta a:hover, .card a:hover{
-	background: #1092c930;
-}
-.container{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 32px;
-	margin-top: 32px;
-}
-.card{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 24px;
-	width: 350px;
-	height: 400px;
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(20px);
-	border-radius: 16px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	flex-flow: column;
-}
-form{
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-	flex-flow: column;
-	width: 100%;
-	padding: 12px;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 16px;
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(20px);
-}
-.user{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 12px;
-	width: 100%;
-}
-input{
-	width: 50%;
-}
-textarea{
-	min-width: 100%;
-	max-width: 100%;
-	height: 200px;
-	max-height: 300px;
-	min-height: 50px;
-}
-input, textarea{
-	padding: 12px 16px;
-	border-radius: 12px;
-	outline: none;
-	background: rgba(255, 255, 255, 0.05);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	font-weight: 600;
-	transition: background 0.2s, box-shadow 0.2s;
-	color: white;
-}
-input:hover, textarea:hover{
-	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-}
-input:focus, textarea:focus{
-	background: rgba(255, 255, 255, 0.1);
-}
-input[type="submit"]{
-	background: #1092c980;
+	border-radius: 4px;
+	background: #06d6a055;
+	color: #06d6a0;
+	border: none;
 	cursor: pointer;
+	transition: 0.2s;
 }
-input[type="submit"]:hover{
-	background: #1092c9;
+button:hover{
+	background: #06d6a077;
 }
-footer{
-	padding: 120px 240px;
+.upgrades{
+	width: 800px;
+	overflow: auto;
+	border-left: 1px solid #fff3;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-flow: column;
-	background: rgba(255, 255, 255, 0.02);
-	border-top: 1px solid rgba(255, 255, 255, 0.05);
 	gap: 12px;
+	padding: 12px;
 }
-footer .top{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	margin-bottom: 32px;
-}
-footer .icons{
+.upgrades nav{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 12px;
-	font-size: 1.4rem;
+	width: 100%;
 }
-footer p a{
-	padding: 0;
-	display: block;
-	border: none;
+.upgrades nav button{
+	width: 100%;
+	font-weight: 200;
 }
-footer p a:hover{
+.upgrades nav button:not(.active){
 	background: transparent;
-	border: none;
-	text-decoration: underline;
+	border: 1px solid #fff3;
+	color: #fff3;
 }
-footer p{
+.upgrades nav button:not(.active):hover{
+	color: #fff5;
+}
+.upgrade{
+	width: 100%;
+	color: #eee;
 	display: flex;
-	gap: 12px;
-	font-size: 0.8rem;
+	align-items: center;
+	border-radius: 4px;
+	justify-content: space-between;
+	padding: 12px;
+	border: 1px solid #fff3;
 }
-.links, .links a{
-	color: #999;
+.upgrade .left{
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	gap: 12px;
+}
+.upgrade ion-icon{
+	font-size: 2rem;
+	color: #bbb;
+}
+.upgrade button{
+	width: 100px;
+}
+.upgrade h2, .upgrade p{
+	font-weight: 200;
+}
+.upgrade p{
+	color: #bbb;
 }
