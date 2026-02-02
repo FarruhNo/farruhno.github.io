@@ -7,80 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="chat-container">
-        <header>
-            <h2>🌐 Global Chat</h2>
-        </header>
-        
-        <div id="chat-box" class="chat-box">
+    <div id="auth-container">
+        <div class="auth-card">
+            <h3>Join the Chat</h3>
+            <button id="google-login">Sign in with Google</button>
+            <hr>
+            <input type="email" id="email-input" placeholder="Email">
+            <input type="password" id="pass-input" placeholder="Password">
+            <div class="auth-buttons">
+                <button id="email-signup">Sign Up</button>
+                <button id="email-login">Login</button>
             </div>
+        </div>
+    </div>
 
-        <form id="message-form">
-            <input type="text" id="user-input" placeholder="Type a message..." required>
-            <button type="submit">Send</button>
-        </form>
+    <div id="chat-app" style="display: none;">
+        <button id="logout-btn">Logout</button>
+    </div>
+    <div id="chat-app" style="display: none;">
+        <button id="logout-btn">Logout</button>
+        <div class="chat-container">
+            <header>
+                <h2>🌐 Global Chat</h2>
+            </header>
+            <div id="chat-box" class="chat-box"></div>
+            <form id="message-form">
+                <input type="text" id="user-input" placeholder="Type a message..." required>
+                <button type="submit" id="send-btn">Send</button>
+            </form>
+        </div>
     </div>
 
     <script type="module" src="script.js"></script>
-
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyCfnuDVP47ex-QsjqOoBDUyDu8dE6EPpBo",
-            authDomain: "online-chat-a3602.firebaseapp.com",
-            projectId: "online-chat-a3602",
-            storageBucket: "online-chat-a3602.firebasestorage.app",
-            messagingSenderId: "23307042316",
-            appId: "1:23307042316:web:b9ff829f08fe22a20ab829",
-            measurementId: "G-KKN070WRXE"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const messagesCol = collection(db, "messages");
-
-        const chatBox = document.getElementById('chat-box');
-        const messageForm = document.getElementById('message-form');
-        const userInput = document.getElementById('user-input');
-
-        // 1. Listen for real-time updates
-        const q = query(messagesCol, orderBy("createdAt", "asc"));
-
-        onSnapshot(q, (snapshot) => {
-            chatBox.innerHTML = ''; // Clear box before re-rendering
-            snapshot.forEach((doc) => {
-                const data = doc.data();
-                displayMessage(data.text, data.uid === "my-unique-id"); // Simplified UID check
-            });
-        });
-
-        // 2. Send message to Firestore
-        messageForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = userInput.value;
-
-            await addDoc(messagesCol, {
-                text: text,
-                createdAt: serverTimestamp(),
-                uid: "my-unique-id" // In a real app, you'd use Firebase Auth for this
-            });
-
-            userInput.value = '';
-        });
-
-        function displayMessage(text, isMine) {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('message');
-            if (isMine) msgDiv.classList.add('mine');
-            msgDiv.textContent = text;
-            chatBox.appendChild(msgDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-    </script>
 </body>
 </html>
